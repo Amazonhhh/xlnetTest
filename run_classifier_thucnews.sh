@@ -9,7 +9,7 @@ python run_classifier.py \
     --task_name=$TASK_NAME \
     --do_train=True \
     --do_eval=True \
-    --do_predict=True \
+    --do_predict=False \
     --eval_all_ckpt=False \
     --uncased=False \
     --data_dir=${RAW_DIR}/${TASK_NAME} \
@@ -23,5 +23,4 @@ python run_classifier.py \
     --max_seq_length=128 \
     --learning_rate=2e-5 \
     --save_steps=1000 \
-    --use_tpu=False \
-    --predic_dir=${OUTPUT_DIR}/predict
+    --use_tpu=False 
