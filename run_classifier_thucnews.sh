@@ -1,7 +1,7 @@
 export XLNET_DIR=/home/ccnunlp-e/lil/GLUE/chineseGLUE/baselines/models/xlnet/prev_trained_model/chinese_xlnet_mid_L-24_H-768_A-12
-export RAW_DIR=/home/ccnunlp-e/lil/GLUE/chineseGLUE/baselines/models/xlnet/chineseGLUEdatasets
+export RAW_DIR=/home/data/lil/xlnet/chineseGLUEdatasets
 TASK_NAME="thucnews"
-OUTPUT_DIR=/home/ccnunlp-e/lil/GLUE/chineseGLUE/baselines/models/xlnet/thucnews_output
+OUTPUT_DIR=/home/data/lil/xlnet/thucnews_output
 python run_classifier.py \
     --spiece_model_file=${XLNET_DIR}/spiece.model \
     --model_config_path=${XLNET_DIR}/xlnet_config.json \
@@ -9,7 +9,7 @@ python run_classifier.py \
     --task_name=$TASK_NAME \
     --do_train=True \
     --do_eval=True \
-    --do_predict=False \
+    --do_predict=True \
     --eval_all_ckpt=False \
     --uncased=False \
     --data_dir=${RAW_DIR}/${TASK_NAME} \
@@ -23,4 +23,5 @@ python run_classifier.py \
     --max_seq_length=128 \
     --learning_rate=2e-5 \
     --save_steps=1000 \
-    --use_tpu=False 
+    --use_tpu=False \
+    --predict_dir=${OUTPUT_DIR}/predict
